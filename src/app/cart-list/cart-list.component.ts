@@ -7,11 +7,19 @@ import { ProductsService } from "../services/products.services";
   styleUrls: ["./cart-list.component.scss"],
 })
 export class CartListComponent implements OnInit {
-  cartListItems: any = [];
 
-  constructor(private productService: ProductsService) {}
+  public get cartList() {
+    return this._productsService.cartItems;
+  }
+
+  constructor(private _productsService: ProductsService) {}
 
   ngOnInit() {
-    this.cartListItems = [...this.productService.cartItems];
+  }
+
+  deleteFromCart(productId) {
+    this._productsService.cartItems = this._productsService.cartItems.filter((item) => {
+      return item.id !== productId;
+    });
   }
 }

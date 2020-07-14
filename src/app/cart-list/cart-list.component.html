@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card" *ngIf="cartListItems.length == 0">
+  <div class="card" *ngIf="cartList.length == 0">
     <div class="card-body">
       <div class="alert alert-danger" role="alert">
         Your cart is empty
@@ -13,7 +13,7 @@
     <!-- START : CartItem Card -->
     <div
       class="col-sm-12 col-md-6 col-lg-4 product-list__item"
-      *ngFor="let product of cartListItems; let i = index"
+      *ngFor="let product of cartList; let i = index"
     >
       <div class="card mb-4 shadow-sm pd-5">
         <div class="product-list__image">
@@ -27,6 +27,12 @@
         <div class="card-body">
           <h4>{{ product.name }}</h4>
           <p class="card-text">{{ product.description }}</p>
+
+          <div class="text-center">
+            <button class="btn btn-sm border-0 ml-2" (click)="deleteFromCart(product.id)">
+                <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
     </div>
