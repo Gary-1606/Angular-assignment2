@@ -18,12 +18,12 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: ProductListComponent,
-    // canActivate: [OnlyLoggedInUsersGuard],
+    canActivate: [OnlyLoggedInUsersGuard],
   },
   {
     path: "cart",
     component: CartListComponent,
-    //canActivate: [OnlyLoggedInUsersGuard],
+    canActivate: [OnlyLoggedInUsersGuard],
   },
   {
     path: "**",
